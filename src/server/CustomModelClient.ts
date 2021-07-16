@@ -68,7 +68,7 @@ export class CustomModelClient extends ModelClient {
                 if ((response.status >= 200) && (response.status < 300)) {
                     return response.json() as Promise<M>;
                 }
-
+                // eslint-disable-next-line
                 throw { response };
             }).catch((error) => {
                 return Promise.reject(error);

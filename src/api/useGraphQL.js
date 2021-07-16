@@ -8,7 +8,6 @@ it.
 */
 import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
 import {useState, useEffect} from 'react';
-import axios from 'axios';
 
 const { REACT_APP_HOST_URI, REACT_APP_HOST_PUBLISH_URI, REACT_APP_GRAPHQL_ENDPOINT, REACT_APP_AUTHORIZATION } = process.env;
 
@@ -22,12 +21,12 @@ function useGraphQL(query, skipCall) {
     let [data, setData] = useState(null);
     let [errorMessage, setErrors] = useState(null);
 
-    const REAC_APP_HOST = AuthoringUtils.isInEditor() ? REACT_APP_HOST_URI : REACT_APP_HOST_PUBLISH_URI;
+    const REACT_APP_HOST = AuthoringUtils.isInEditor() ? REACT_APP_HOST_URI : REACT_APP_HOST_PUBLISH_URI;
 
     useEffect(() => {
         if(!skipCall) {
             window.fetch(
-                REAC_APP_HOST + REACT_APP_GRAPHQL_ENDPOINT,
+                REACT_APP_HOST + REACT_APP_GRAPHQL_ENDPOINT,
             {
                 method: 'POST',
                 headers: getHttpHeaders(),
@@ -47,7 +46,7 @@ function useGraphQL(query, skipCall) {
             .catch((error) => {
                 setErrors(error);
             });
-        }
+        } // eslint-disable-next-line
     }, [query, skipCall]);
 
     return {data, errorMessage}

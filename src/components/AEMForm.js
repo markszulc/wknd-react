@@ -14,6 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+ // eslint-disable-next-line
 import React, {PureComponent, useState, createRef, memo, useEffect} from 'react';
 import $ from 'jquery';
 import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
@@ -22,6 +23,7 @@ require('./AEMForm.css');
 
 const { REACT_APP_HOST_URI, REACT_APP_HOST_PUBLISH_URI, REACT_APP_AUTHORIZATION } = process.env;
 
+// eslint-disable-next-line
 const AEMFormIsEmptyFn = function(props) {
     console.log("test");
     return !props || !props.formPath || props.formPath.trim().length < 1;
@@ -40,6 +42,7 @@ const AEMFormIsEmptyFn = function(props) {
  *  wcmMode : String : wcmmode to use to render the form
  */
 export const AEMForm = ({ formPath, guidePath, formType, themeRef, isValidForm, icChannel, wcmMode }) => {
+    // eslint-disable-next-line
    const [form, setForm] = useState("");
    useEffect(() => {
     async function fetchData() {
@@ -48,7 +51,7 @@ export const AEMForm = ({ formPath, guidePath, formType, themeRef, isValidForm, 
             $(".aemformcontainer").html(data);
         }
     }
-    fetchData();
+    fetchData(); // eslint-disable-next-line
     }, []);
 
     const REAC_APP_HOST = AuthoringUtils.isInEditor() ? REACT_APP_HOST_URI : REACT_APP_HOST_PUBLISH_URI;
@@ -85,7 +88,7 @@ export const AEMForm = ({ formPath, guidePath, formType, themeRef, isValidForm, 
                 
 
                 if (formType === 'adaptiveDocument' && icChannel === 'printChannel') {
-                    console.log("Wrong");
+                    console.log("Wrong"); // eslint-disable-next-line
                     return <object class="adaptiveDocument" type="application/pdf" width="100%" height="1000px" data="' + url + '"></object>;
                 } else {
                     console.log("URL: " + url);
