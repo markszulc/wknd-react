@@ -6,9 +6,11 @@ NOTICE: Adobe permits you to use, modify, and distribute this file in
 accordance with the terms of the Adobe license agreement accompanying
 it.
 */
+import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
 import {useState, useEffect} from 'react';
+import axios from 'axios';
 
-const { REACT_APP_HOST_URI, REACT_APP_GRAPHQL_ENDPOINT, REACT_APP_AUTHORIZATION } = process.env;
+const { REACT_APP_HOST_URI, REACT_APP_HOST_PUBLISH_URI, REACT_APP_GRAPHQL_ENDPOINT, REACT_APP_AUTHORIZATION } = process.env;
 
 /*
     Custom React Hook to perform a GraphQL query
@@ -20,10 +22,12 @@ function useGraphQL(query, skipCall) {
     let [data, setData] = useState(null);
     let [errorMessage, setErrors] = useState(null);
 
+    const REAC_APP_HOST = AuthoringUtils.isInEditor() ? REACT_APP_HOST_URI : REACT_APP_HOST_PUBLISH_URI;
+
     useEffect(() => {
         if(!skipCall) {
             window.fetch(
-            REACT_APP_HOST_URI + REACT_APP_GRAPHQL_ENDPOINT,
+                REAC_APP_HOST + REACT_APP_GRAPHQL_ENDPOINT,
             {
                 method: 'POST',
                 headers: getHttpHeaders(),
@@ -60,8 +64,8 @@ function mapErrors(errors) {
 function getHttpHeaders() {
     // set headers and include authorization if authorization set
     let httpHeaders = new Headers();
-    httpHeaders.append('Content-Type', 'application/json');
-    if(REACT_APP_AUTHORIZATION) {
+    httpHeaders.append("Content-Type", 'application/json');
+    if(REACT_APP_AUTHORIZATION && AuthoringUtils.isInEditor()) {
         httpHeaders.append('Authorization', 'Basic ' + btoa(REACT_APP_AUTHORIZATION))
     }
     return httpHeaders;

@@ -9,7 +9,7 @@ import AEMPage from './AEMPage';
 function Home() {
   return (
     <div className="Home">
-      <h2>Awesome Adventures</h2>
+      <h2>Current Adventures</h2>
       <AEMPage
         pagePath='/content/wknd-spa/home' />
       <Adventures />

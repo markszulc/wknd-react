@@ -11,11 +11,9 @@ import { withRouter, Link} from "react-router-dom";
 import useGraphQL from '../api/useGraphQL';
 import Error from './Error';
 import Loading from './Loading';
-import Image from './Image';
 import './AdventureDetail.scss';
-
-import AEMPage from './AEMPage';
-import { AEMImage, AEMText } from './core-components/AEMComponents';
+import Image from './Image';
+import { AEMContainer, AEMText } from './core-components/AEMComponents';
 
 const { REACT_APP_PUBLIC_URL } = process.env;
 
@@ -56,7 +54,8 @@ function AdventureDetail(props) {
             <img className="Backbutton-icon" src={REACT_APP_PUBLIC_URL + '/icon-close.svg'} alt="Return" />
           </Link>
           <h1 className="adventure-detail-title">{adventureData.adventureTitle}</h1>
-          
+          <AEMText pagePath={`/content/wknd-spa/adventures/${pathname}`}
+            itemPath='root/responsivegrid/text' />
           <div className="adventure-detail-info">
             <div className="adventure-detail-info-label">Activity</div>
             <div className="adventure-detail-info-description">{adventureData.adventureActivity}</div>
@@ -70,21 +69,21 @@ function AdventureDetail(props) {
             <div className="adventure-detail-info-description">{adventureData.adventureDifficulty}</div>
             <div className="adventure-detail-info-label">Price</div>
             <div className="adventure-detail-info-description">{adventureData.adventurePrice}</div>
-            <AEMText pagePath={`/content/wknd-spa/adventures/${pathname}`}
-            itemPath='root/responsivegrid/text' />
           </div>
           <div className="adventure-detail-content">
             <Image className="adventure-detail-primaryimage" alt={adventureData.adventureTitle}
                    {... adventureData.adventurePrimaryImage} />
             <div dangerouslySetInnerHTML={{__html: adventureData.adventureDescription.html}}></div>
 
-            
+            <AEMContainer pagePath={`/content/wknd-spa/adventures/${pathname}`} 
+              itemPath={'/root/responsivegrid/container2'}/>
             <h2>Itinerary</h2>
             <hr />
             <div className="adventure-detail-itinerary"
                  dangerouslySetInnerHTML={{__html: adventureData.adventureItinerary.html}}></div>
-            <AEMImage pagePath={`/content/wknd-spa/adventures/${pathname}`} 
-              itemPath={'/root/responsivegrid/image'}/>
+            <AEMContainer pagePath={`/content/wknd-spa/adventures/${pathname}`} 
+              itemPath={'/root/responsivegrid/container1'}/>
+            
             <Contributer {...adventureData.adventureContributor} />
           </div>
 

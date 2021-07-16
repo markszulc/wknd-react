@@ -14,6 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 import { Model, ModelClient } from '@adobe/aem-spa-page-model-manager';
+import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
 
 /**
  * Custom ModelClient meant to demonstrate how to customize the request sent to the remote server
@@ -57,7 +58,7 @@ export class CustomModelClient extends ModelClient {
         // set headers and include authorization if authorization set
         let httpHeaders = new Headers();
         httpHeaders.append('Content-Type', 'application/json');
-        if(this.authorization) {
+        if(this.authorization && AuthoringUtils.isInEditor()) {
             httpHeaders.append('Authorization', 'Basic ' + btoa(this.authorization))
         }
 
