@@ -1,0 +1,34 @@
+[{
+	"label": "Glazed amped",
+	"price": "$2.50"
+}, {
+	"label": "Jelly",
+	"price": "$1.95"
+}, {
+	"label": "Glazed Old Fashioned",
+	"price": "$1.50"
+}, {
+	"label": "Cronut",
+	"price": "$2.25"
+}, {
+	"label": "Apple Fritter",
+	"price": "$1.95"
+}, {
+	"label": "Glazed Cruller",
+	"price": "$1.75"
+}, {
+	"label": "Sugar",
+	"price": "$1.50"
+}, {
+	"label": "Boston Cream",
+	"price": "$1.75"
+}, {
+	"label": "Vanilla Sprinkles",
+	"price": "$1.65"
+}, {
+	"label": "Crumb Cake",
+	"price": "$1.50"
+}, {
+	"label": "Maple Bar",
+	"price": "$1.95"
+}]

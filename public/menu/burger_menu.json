@@ -1,0 +1,51 @@
+[{
+	"label": "Cheeseburger Amped",
+	"price": "$6.95",
+	"isSoldOut": true,
+	"isProminent": false
+}, {
+	"label": "Hamburger",
+	"price": "$5.95",
+	"isSoldOut": false,
+	"isProminent": true
+}, {
+	"label": "Double Cheeseburger",
+	"price": "$7.95",
+	"isSoldOut": false,
+	"isProminent": false
+}, {
+	"label": "Double Hamburger",
+	"price": "$6.95",
+	"isSoldOut": false,
+	"isProminent": false
+}, {
+	"label": "BBQ Burger",
+	"price": "$7.95",
+	"isSoldOut": false,
+	"isProminent": false
+}, {
+	"label": "Impossible Cheeseburger",
+	"price": "$6.95",
+	"isSoldOut": false,
+	"isProminent": false
+}, {
+	"label": "California Burger",
+	"price": "$7.95",
+	"isSoldOut": false,
+	"isProminent": false
+}, {
+	"label": "Mushroom Cheeseburger",
+	"price": "$7.95",
+	"isSoldOut": false,
+	"isProminent": false
+}, {
+	"label": "Chili Burger",
+	"price": "$7.95",
+	"isSoldOut": false,
+	"isProminent": false
+}, {
+	"label": "Chili Burger",
+	"price": "$7.95",
+	"isSoldOut": false,
+	"isProminent": false
+}]
